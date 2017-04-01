@@ -1,0 +1,192 @@
+html {
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 200;
+}
+
+nav {
+    background: limegreen;
+    height: 50px;
+}
+
+nav span {
+    margin: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+nav i {
+    margin: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+main p {
+    font-size: 1.3em;
+    line-height: 1.8em;
+    text-indent: 1.3em;
+    color: gray;
+   text-align:justify;  
+}
+
+.material-icons {
+    font-size: 30px;
+}
+
+nav a {
+    cursor: pointer;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: ghostwhite;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover,
+.offcanvas a:focus {
+    color: black;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.main {
+    display: none;
+   
+}
+
+.first {
+    display: block;
+}
+
+.container {
+    display: flex;
+    margin: 50px;
+     align-items:center;
+    justify-content:center;
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        margin: 10px;
+    }
+}
+
+button {
+    position: relative;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #89669b;
+    color: white;
+    padding: 18px 60px;
+    border-radius: 2px;
+    font-size: 22px;
+}
+
+.btn {
+    position: relative;
+    display: block;
+    margin: 30px auto;
+    padding: 0;
+    overflow: hidden;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    background-color: #2ecc71;
+    color: #ecf0f1;
+    transition: background-color .1 s;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: #27ae60;
+}
+
+.btn>* {
+    position: relative;
+}
+
+.btn span {
+    display: block;
+    padding: 12px 24px;
+}
+
+.btn:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
+    background-color: rgba(236, 240, 241, .3);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+    width: 120%;
+    padding-top: 120%;
+    transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+
+/* Styles, not important */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}

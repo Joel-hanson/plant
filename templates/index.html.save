@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>The-Plant</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/style.css')}}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#newsfeed" onclick="toggleview(this)">News feed</a>
+        <a href="#scan" onclick="toggleview(this)">Scan plant</a>
+        <a href="#about" onclick="toggleview(this)">About</a>
+        <a href="#team" onclick="toggleview(this)">Team</a>
+        <a href="#contact" onclick="toggleview(this)">Contact</a>
+    </div>
+    <nav>
+        <i onclick="openNav()" class="material-icons">menu</i><span>The plant</span>
+        <i style="float: right;" class="material-icons">&#xE853;</i>
+    </nav>
+    <main class="container">
+        <div id="newsfeed" class="main first">
+            <h1>news feed</h1>
+        </div>
+        <div id="scan" class="main">
+            <form action="myform.cgi" >
+                <input type="file" name="fileupload" value="fileupload" onchange="previewFile()" id="fileupload">
+                <label for="fileupload"> Select a file to upload</label>
+            </form>
+            <center>
+                <img src="" height="200">
+            </center>
+            <button class="btn" type="button"><span>Scan</span></button>
+        </div>
+        <div id="about" class="main">
+            <center>
+                <h1>About</h1>
+            </center>
+            <p>Agriculture plays a vital role in the economy of India. Nearly 70% of Indian population depends on agriculture.
+                When crops are affected by diseases it brings down the total agricultural production. Farmers have to identify
+                the pest and decide which pesticide to be used to control the disease. They may use these pesticides without
+                proper knowledge about the amount of pesticide required. This will also affect the plants adversely. If farmers
+                seek expert opinion to find out the disease it can be time consuming and may not be accurate. To overcome
+                this problem image processing techniques and machine learning methods can be used.</p>
+        </div>
+        <div id="team" class="main">
+            <h1>Team</h1>
+            <br>
+            Joel Hanson <br><br>
+            Jerin Francis <br><br>
+            Anandhakrishnan <br><br>
+            Annette Joy
+        </div>
+        <div id="contact" class="main">
+            <h1>Contact</h1>
+        </div>
+    </main>
+    <script src="{{url_for('static', filename='js/index.js')}}"></script>
+    <script>
+        function toggleview(clickedid) {
+            var elems = document.getElementsByClassName('main');
+            for (var i = 0; i < elems.length; i += 1) {
+                elems[i].style.display = 'none';
+            }
+            console.log(clickedid.hash.substr(1));
+            document.getElementById(clickedid.hash.substr(1)).style.display = "block";
+            closeNav();
+
+        }
+
+        function previewFile() {
+            var preview = document.querySelector('img'); //selects the query named img
+            var file = document.querySelector('input[type=file]').files[0]; //sames as here
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            }
+
+            if (file) {
+                reader.readAsDataURL(file); //reads the data as a URL
+            } else {
+                preview.src = "";
+            }
+        }
+
+        previewFile();
+    </script>
+</body>
+
+</html>
